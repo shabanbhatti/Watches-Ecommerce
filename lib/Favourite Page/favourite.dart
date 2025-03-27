@@ -1,0 +1,60 @@
+import 'package:flutter/material.dart';
+import 'package:watches_ecommerce_/Home%20Screen/watch_container.dart';
+import 'package:watches_ecommerce_/UI%20helper/app_MAIN_color.dart';
+
+class FavouritePage extends StatefulWidget {
+  FavouritePage({super.key, required this.favouriteList});
+  List favouriteList;
+
+  @override
+  State<FavouritePage> createState() => _FavouritePageState();
+}
+
+class _FavouritePageState extends State<FavouritePage> {
+  @override
+  Widget build(BuildContext context) {
+    var mqSize = MediaQuery.of(context).size;
+    return Center(
+      child: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            expandedHeight: mqSize.height * 0.1,
+            leading: SizedBox(),
+            pinned: true,
+            backgroundColor: myColor,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text('Favourite'),
+              
+              centerTitle: true,
+            ),
+          ),
+
+          SliverPadding(
+            padding: EdgeInsets.only(right: 10, left: 10, top: 20),
+            sliver: SliverGrid.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 15,
+                crossAxisSpacing: 15,
+                childAspectRatio: 0.7,
+              ),
+              itemCount: widget.favouriteList.length,
+
+              itemBuilder: (context, index) {
+                return WatchContainer(
+                  watchDetail: widget.favouriteList[index],
+                  onPressedLIKED: () {},
+                  onPressedUNLIKED: () {
+                    setState(() {
+                      widget.favouriteList.removeAt(index);
+                    });
+                  },
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
