@@ -9,10 +9,12 @@ class WatchContainer extends StatefulWidget {
     required this.watchDetail,
     required this.onPressedLIKED,
     required this.onPressedUNLIKED,
+    required this.onTapCont,
   });
   WatchDetail watchDetail;
   void Function()? onPressedLIKED;
   void Function()? onPressedUNLIKED;
+  void Function()? onTapCont;
   @override
   State<WatchContainer> createState() => _WatchContainerState();
 }
@@ -53,6 +55,7 @@ class _WatchContainerState extends State<WatchContainer>
     return Material(
       color: Colors.transparent,
       child: InkWell(
+        onTap: widget.onTapCont,
         child: Container(
           height: mqSize.height * 0.29,
           width: mqSize.width * 0.47,
@@ -78,8 +81,8 @@ class _WatchContainerState extends State<WatchContainer>
                   child: Image.asset(
                     'assets/images/${widget.watchDetail.imgName}.png',
                     height: mqSize.height * 0.15,
-                    width: mqSize.width * 0.23,
-                    fit: BoxFit.fill,
+                    width: mqSize.width * 0.25,
+                    fit: BoxFit.fitHeight,
                   ),
                 ),
               ),
@@ -103,7 +106,16 @@ class _WatchContainerState extends State<WatchContainer>
                     Flexible(child: Text('Price: ')),
                     Flexible(
                       child: Text(
-                        widget.watchDetail.watchPrice,
+                        widget.watchDetail.watchPrice.toString(),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: myColor,
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      child: Text(
+                        'k',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: myColor,

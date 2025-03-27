@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:watches_ecommerce_/UI%20helper/my_main_button.dart';
 import 'package:watches_ecommerce_/UI%20helper/my_text_style.dart';
 
 void successDialogBox(BuildContext context, String message) {
   showDialog(
+    barrierColor: Colors.grey.withAlpha(80),
     context: context,
     builder: (context) {
       return AlertDialog(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         title: Row(
           children: [
@@ -19,11 +23,13 @@ void successDialogBox(BuildContext context, String message) {
         ),
         content: Text(message),
         actions: [
-          TextButton(
+          myButton(
+            context,
+            buttonText: 'ok',
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text("OK"),
+            buttonMqWidth: 0.2,
           ),
         ],
       );

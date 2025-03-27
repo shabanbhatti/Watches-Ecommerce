@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:watches_ecommerce_/Home%20Screen/watch_container.dart';
+import 'package:watches_ecommerce_/Model%20Bottom%20Sheet/model_bottom_sheet.dart';
 import 'package:watches_ecommerce_/UI%20helper/app_MAIN_color.dart';
 
 class FavouritePage extends StatefulWidget {
@@ -53,6 +54,23 @@ class _FavouritePageState extends State<FavouritePage> {
                         setState(() {
                           widget.favouriteList.removeAt(index);
                         });
+                      },
+                      onTapCont: () {
+    //                      WatchDetail(
+    //                        watchName: 'Silver Steel SmartWatch',
+    //                       watchPrice: 55,
+    //                       imgName: 'smartwatch2',
+    //                         isLiked: false,
+    //                         isSmartOrAnalog: 'Smart Watch'
+    // ),
+                        modelBottomSheet(
+                          imgName: widget.favouriteList[index].imgName,
+                          context,
+                         
+                          originalWatchPrice: widget.favouriteList[index].watchPrice, 
+                          watchName: widget.favouriteList[index].watchName,
+                          watchPrice: widget.favouriteList[index].watchPrice,
+                          );
                       },
                     );
                   },
