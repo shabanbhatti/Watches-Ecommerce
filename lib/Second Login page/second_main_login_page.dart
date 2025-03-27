@@ -26,6 +26,12 @@ class _SecondPageLoginState extends State<SecondPageLogin> {
   var passwordFormKey = GlobalKey<FormState>();
   FocusNode passwordFocusNode = FocusNode();
 
+@override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     var mqSize = MediaQuery.of(context).size;
