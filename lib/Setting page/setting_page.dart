@@ -24,7 +24,7 @@ class _SettingPageState extends State<SettingPage> {
   Future<void> pickingImage(ImageSource imageSource) async {
     try {
       XFile? pickedFile = await imagePicker.pickImage(source: imageSource);
-
+      print(pickedFile);
       if (pickedFile != null) {
         setState(() {
           file = File(pickedFile.path);
@@ -34,6 +34,10 @@ class _SettingPageState extends State<SettingPage> {
       print('Not workin $e');
     }
   }
+  // void foo(ImageSource imageSource){
+
+  //   XFile? pickedFile =  imagePicker.pickImage(source: imageSource);
+  // }
 
   void myPickingImgDialogBox() {
     showCupertinoDialog(

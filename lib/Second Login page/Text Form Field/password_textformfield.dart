@@ -54,6 +54,8 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
             labelText: 'Enter your password',
             prefixIcon: Icon(Icons.lock),
             suffixIcon:
+
+
                 (isObscure == true)
                     ? IconButton(
                       onPressed: () {

@@ -78,14 +78,14 @@ class _SecondPageLoginState extends State<SecondPageLogin> {
                       }
                     },
                   ),
-                  myButton(
+                 myButton(
                     context,
                     buttonText: 'Sign up',
                     buttonMqWidth: 0.3,
                     onPressed: () {
                       navigationPUSHStyle(context, SignUpPage());
                     },
-                  ),
+                  )
                 ],
               ),
               SizedBox(height: mqSize.height * 0.1),

@@ -85,14 +85,14 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
         SlideTransition(
           position: slidingBUTTON,
           child: myButton(
-            buttonText: 'Get Started →',
+            buttonMqWidth: 0.4,
+            buttonText: 'Get Started',
             onPressed: () {
               navigationPUSHStyle(context, SecondPageLogin());
             },
             context,
           ),
         ),
-        
       ],
     );
   }
